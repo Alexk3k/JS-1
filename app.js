@@ -19,4 +19,4 @@ const allDays = 11;
 
 let payment = hourPayment * jobHours;
 console.log(payment + "$");
-console.log(workDaysWOWeekend < allDays);
+console.log(workDaysWOWeekend < allDays); 
