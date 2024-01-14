@@ -1,23 +1,24 @@
-/*
-    Вася положил 12 000$ на вклад 7% годовых с
-    капитализацией 1 раз в месяц.
-    Вывести в консоль, сможет ли нон купить дом за 13 500$
-    через 2 года после снятия вклада. И остаток после покупки.
+/* 
+    Методом Prompt полиучите ответ пользователя 
+    на вопрос "Сколько будет 7 + или - 15?", Если ответ верен
+    введите в консиле "Успех", если нет - "Вы робот!,
+    а если он введет "Я не робот", то тоже "Успех".
+*/
 
-    Итог = Сумма * (1 + Ставка в месяц не в %) ^ срок в месяцах
-*/ 
 
-const deposit = 12000;
-const rate = 0.07;
-const depositLength = 24;
-const houseCost = 13500;
+let answer = prompt("Сколько будет 7 + или - 15?");
+console.log(answer)
 
-let money = (deposit * (1+ rate / 12) ** depositLength)
-console.log(money);
-
-if (money > houseCost){
-    console.log(`U have ${money} and Yes u can buy a house, gratz. 
-Balance ${money - houseCost } ` )
-} else{
-    console.log(`U have ${money} not enought money :( `)
+switch(true) {
+    case Number(answer) === 22:
+    case Number(answer) === -8:
+    case answer === 'Я не робот':
+        console.log('Успех');
+        break;
+    case answer === null:
+        console.log('Зачем отменил?');
+        break;
+    default:
+        console.log('Вы робот!');
+        break;
 }
