@@ -1,63 +1,45 @@
 /*
-    Пользователь:
-    - Возраст
-    - Наличие работы
-    - Деньги
-    Нужно проверить может ли он купить новый MacBook за 2000$?
-    Он может брать не только свои деньги, но и взять кредит.
-    Ему дадут 500$, только если ему больше 24-х лет и он
-    имеет работу, 100$ если ему просто больше 24-х лет и 0 в
-    ином случае.
-    Напишите функцию, которая принимает данные пользователя
-    и товара и возвращает true или false;
+    Дан список задач
+    const tasks = ['Задача 1'];
+    Сделать функции:
+    - Добавление задачи в конец
+    - Удаление задачи по назвапнию
+    - Перенос задачи в начало списка по названию
+    Всегда меняем исходных массив
 */
 
-//function ageCheck(age){
- //   if (age > 24)
- //   return true;
- //   {
- //       return false
- //   }
-//}
+const tasks = ['Task 1'];
 
-//function jobCheck(haveJob){
-//    if (haveJob === 'Yes')
-//    return true;
-//    {
-//        return false
-//    }
-//}
+function addTask(taskName) {
+    tasks.push(taskName) 
+};
+addTask('Task 2');
+addTask('Task 3');
+addTask('Task 4');
 
-function getCredit(money, age, haveJob){
-    if (age > 24 && haveJob === true){
-    return money + 500;
-}
-    else if (age > 24 && haveJob === false){
+console.log(tasks);
 
-    return money + 100;
-}
-    else (age < 24 && haveJob === false)
-    {
-    return money + 0;
-}
-}
-
-function getMacBook(MacBookPrice, money, age, haveJob){
-   const enoughtMoney = getCredit(money, age, haveJob);
-   console.log(enoughtMoney);
-   if(enoughtMoney >= MacBookPrice){
-    buy = true;
+function removeTask(taskName) {
+   const numTask = tasks.indexOf(taskName);
+   if (numTask === -1){
+    return;
    }
-   else
-   {
-    buy = false
-   }
-   return console.log(buy);
-   
-}
+    tasks.splice(numTask, 1);
+};
+removeTask('Task 1');
+console.log(tasks)
 
-//console.log(ageCheck(25));
-//console.log(jobCheck('Yes'));
-//console.log(getCredit(2000, 25, true));
-console.log(getMacBook(2000, 1900, 25, true));
+function replaceToStartTask(taskName) {
+    const numTask = tasks.indexOf(taskName);
+    if (numTask === -1){
+        return;
+    }
+    const oldTask = tasks[numTask];
+    tasks.splice(numTask, 1);
+    tasks.unshift(oldTask); 
+    };
 
+replaceToStartTask('Task 3')
+
+
+console.log(tasks)
