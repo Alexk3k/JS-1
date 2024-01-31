@@ -1,43 +1,30 @@
 /*
-    Дан список задач
-    const tasks = ['Задача 1'];
-    Сделать функции:
-    - Добавление задачи в конец
-    - Удаление задачи по назвапнию
-    - Перенос задачи в начало списка по названию
-    Всегда меняем исходных массив
-
+    Дан произвольный url -
+    'https://purpleschool.ru/course/javascript'
+    Нужно сделать функцию, которая выводит в консоль:
+    - Протокол (https)
+    - Доменное имя (purpleschool.ru)
+    - Путь внутри сайта (/course/javascript)
 */
 
-const tasks = ['Task 1'];
+const url = 'https://purpleschool.ru/course/javascript';
+const url2 = 'https://docs.google.com/spreadsheets/d/';
 
-function addTask(taskName) {
-    tasks.push(taskName); 
-};
 
-function removeTask(taskName) {
-   const numTask = tasks.indexOf(taskName);
-   if (numTask === -1){
-    return;
-   }
-    return tasks.splice(numTask, 1);
-};
+function urlSplit(url){
+    const [protocol, _, domain, ...path] = url.split('/')
+    console.log(protocol, _, domain, path)
+    console.log(`Протокол: ${protocol.split(':')[0]}`);
+    console.log(`Доменное имя: ${domain}`);
+    console.log(`Путь внутри сайта: ${path.join('/')}`);
+    // const res = url.split('/');
+    // const protocol = res[0];
+    // const domain = res[2];
+    // const path = res[3] + ('/') + res[4];
+    // console.log('Протокол -', protocol);
+    // console.log('Доменное имя -', domain);
+    // console.log('Путь внутри сайта -', path);
+}
 
-function replaceToStartTask(taskName) {
-    const result = removeTask(taskName);
-    if (!result) {
-        return;
-    }
-    tasks.unshift(result[0]);
-};
-
-addTask('Task 2');
-addTask('Task 3');
-addTask('Task 4');
-console.log(tasks);
-
-removeTask('Task 1');
-console.log(tasks);
-
-replaceToStartTask('Task 3')
-console.log(tasks)
+urlSplit(url);
+urlSplit(url2);
