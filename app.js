@@ -1,14 +1,17 @@
 /*
-    Имеется массив изменения цен prices, где внутри
-    1й элемент массива является ценой в момент Х,
-    2й - ценой в момент Y.
-    Нужно преобразовать данные в массив, где будут отображены
-    только положительные изменения цен: [100, 150]
+    Найти среднее значение последовательности
+    чисел с помощью reduse
 */
 
-const prices = [[100, 200], [120, 100], [200, 350]];
+const arr = [1, 4, 4, 10];
 
-const positiveChanges = prices
-    .map(product => product[1] - product[0])
-    .filter(price => price > 0);
-console.log(positiveChanges);
+const average = arr.reduce((acc, el, i) => {
+    if (i != arr.length - 1){
+    return acc + el;
+    } else {
+            return (acc + el) / arr.length;
+        }
+    
+}, 0);
+
+console.log(average);
