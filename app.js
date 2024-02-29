@@ -1,17 +1,15 @@
 /*
-    Найти среднее значение последовательности
-    чисел с помощью reduse
+    Написать функцию, которая возвращает true,
+    если елемент есть, и false, если нет.
 */
 
-const arr = [1, 4, 4, 10];
+const arr = [2, 4, 4, 10, 20];
 
-const average = arr.reduce((acc, el, i) => {
-    if (i != arr.length - 1){
-    return acc + el;
-    } else {
-            return (acc + el) / arr.length;
-        }
-    
-}, 0);
+function some(array, element) {
+    const res = array.find(el => el === element);
+    return res == undefined ? false : true;
+}
 
-console.log(average);
+console.log(some(arr, 5));
+
+console.log(arr.some(el => el === 2))
