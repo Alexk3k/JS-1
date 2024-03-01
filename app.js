@@ -1,15 +1,21 @@
-/*
-    Написать функцию, которая возвращает true,
-    если елемент есть, и false, если нет.
-*/
+const users = ['Вася', 'Маша', 'Катя', 'Аня'];
+console.log(users);
+users.sort();
+console.log(users);
 
-const arr = [2, 4, 4, 10, 20];
+const operations = [100, -300, -100, 50 , 480];
+console.log(operations);
 
-function some(array, element) {
-    const res = array.find(el => el === element);
-    return res == undefined ? false : true;
-}
 
-console.log(some(arr, 5));
+operations.sort((a, b) => a - b);
+console.log(operations);
 
-console.log(arr.some(el => el === 2))
+operations.sort((a, b) =>{
+    if (a < b){
+        return 1;
+    }
+    if (a > b){
+        return -1;
+    }
+});
+console.log(operations);
