@@ -1,21 +1,10 @@
-const users = ['Вася', 'Маша', 'Катя', 'Аня'];
-console.log(users);
-users.sort();
-console.log(users);
+/* вытащить имя и фамилию в отдельные переменные */
 
-const operations = [100, -300, -100, 50 , 480];
-console.log(operations);
+const fulluserName = 'Вася aka Terminator T3rdinat0r Пупкин';
 
+const userName = fulluserName.slice(0, fulluserName.indexOf(' '))
+const userSername = fulluserName.slice(fulluserName.lastIndexOf(' ') + 1);
 
-operations.sort((a, b) => a - b);
-console.log(operations);
-
-operations.sort((a, b) =>{
-    if (a < b){
-        return 1;
-    }
-    if (a > b){
-        return -1;
-    }
-});
-console.log(operations);
+console.log(userName + ' ' + userSername);
+console.log(userName);
+console.log(userSername);
