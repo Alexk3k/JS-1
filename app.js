@@ -1,9 +1,10 @@
-/* Замаскировать все, кроме последних 4х символов */
-/* ***********8353 */
+/* отсортировать пользователей по возрасту */
 
-const card = '2342834503458353';
+const users = [
+    { name : 'Вася', age : 30 },
+    { name : 'Катя', age : 18 },
+    { name : 'Аня', age : 40 },
+    { name : 'Петя', age : 25 },
+]
 
-const last4Nums = card.slice(-4);
-console.log(last4Nums);
-const markedCardNumber = last4Nums.padStart(card.length, '*');
-console.log(markedCardNumber);
+console.log(users.sort((a, b) => a.age - b.age));
