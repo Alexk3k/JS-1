@@ -1,45 +1,58 @@
-/* Реальизовать методы увеличения и уменьшения баланса,
-    при котором каждая операция сохраняется в массив
-    opetarions в виде {reason : 'Оплата налогов', sum : -100}.
-    Возвращается true, если успешно и false, если не хватает баланса
-    Так же реализовать метод вволда числа операций по кошельку
+/* 
+    Сделать объект склад с методиками добавления на склад поиска
+    по складу товара и расчет веса
 */
 
-const wallet = {
-    balance : 0,
-    increase : function(sum, reason){
-        this.balance += sum;
-        this.operations.push({
-            reason : reason,
-            sum : sum
-        })
-        return true;
-        
-},
-    decrease : function(sum, reason){
-        if(this.balance < sum){
-            console.log('Not enought money');
-            return false;
-        }
-        this.balance -= sum;
-        this.operations.push({
-            reason : reason,
-            sum : -sum
-        })
-        return true;
-},
-    getOperationLenght :function (){
-        return this.operations.length;
+const wareHouse = {
+    goods : [],
+    findGoodById : function (id) {
+        wareHouse.goods.map(function(item){
+            if(id == item.id){
+                return console.log(item)
+            }
+        });
     },
-    operations : []
+    addGood : function (goodName) {
+        return wareHouse.goods.push(goodName); 
+    },
+    getWeightKg : function (id) {
+        wareHouse.goods.map(function(item){
+            if(id == item.id){
+            return console.log(item?.weight?.kg)
+            }
+        })
+        
+    }
+
 };
 
-console.log(wallet.increase(1000, 'ЗП'));
-console.log(wallet.getOperationLenght());
-console.log(wallet.decrease(2000, 'Попука ПК'));
-console.log(wallet.getOperationLenght());
-console.log(wallet.decrease(500, 'Покупка Телефона'));
-console.log(wallet.getOperationLenght());
-console.log(wallet.balance);
-console.log(wallet.operations);
+/* Товары */
 
+const car = {
+    id : 1,
+    weight :{
+        kg : 1000
+    },
+    brand : 'Ford'
+};
+
+const chair = {
+    id : 2,
+    weight: {
+        kg : 2
+    }
+};
+
+const paper = {
+    id : 3,
+    color : 'red'
+};
+
+console.log(wareHouse.addGood(car));
+console.log(wareHouse.addGood(chair));
+console.log(wareHouse.addGood(paper));
+console.log(wareHouse);
+
+wareHouse.getWeightKg(1);
+
+wareHouse.findGoodById(1)
