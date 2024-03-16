@@ -1,58 +1,33 @@
-/* 
-    Сделать объект склад с методиками добавления на склад поиска
-    по складу товара и расчет веса
+/*
+    дополнить объект методами для получиния имени:
+    - компании
+    - сео
+    - сотрудника
 */
 
-const wareHouse = {
-    goods : [],
-    findGoodById : function (id) {
-        wareHouse.goods.map(function(item){
-            if(id == item.id){
-                return console.log(item)
-            }
-        });
+
+const company = {
+    name : 'OOO Agro',
+    getCorpName : function(){
+        console.log(this.name) 
     },
-    addGood : function (goodName) {
-        return wareHouse.goods.push(goodName); 
-    },
-    getWeightKg : function (id) {
-        wareHouse.goods.map(function(item){
-            if(id == item.id){
-            return console.log(item?.weight?.kg)
-            }
-        })
-        
+    employees : [
+        {
+            name : 'Sveta'
+        }
+    ],
+    ceo : 'Vasya',
+    getCeoName : function(){
+        console.log(this.ceo) 
     }
 
-};
+}
 
-/* Товары */
+company.employees.map((item) => {
+        console.log(item.name) ;
+ })
 
-const car = {
-    id : 1,
-    weight :{
-        kg : 1000
-    },
-    brand : 'Ford'
-};
 
-const chair = {
-    id : 2,
-    weight: {
-        kg : 2
-    }
-};
+company.getCeoName()
+company.getCorpName()
 
-const paper = {
-    id : 3,
-    color : 'red'
-};
-
-console.log(wareHouse.addGood(car));
-console.log(wareHouse.addGood(chair));
-console.log(wareHouse.addGood(paper));
-console.log(wareHouse);
-
-wareHouse.getWeightKg(1);
-
-wareHouse.findGoodById(1)
