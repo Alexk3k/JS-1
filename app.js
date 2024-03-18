@@ -1,33 +1,23 @@
 /*
-    дополнить объект методами для получиния имени:
-    - компании
-    - сео
-    - сотрудника
+    Создайте объект пользователя с паролем.
+    С помощью функции ниже удалить пароль сделав
+    функцию сброса пароля
 */
 
-
-const company = {
-    name : 'OOO Agro',
-    getCorpName : function(){
-        console.log(this.name) 
-    },
-    employees : [
-        {
-            name : 'Sveta'
-        }
-    ],
-    ceo : 'Vasya',
-    getCeoName : function(){
-        console.log(this.ceo) 
+function removePassword(reset){
+    if(reset){
+        this.password = undefined;
+    } else {
+        this.password = '1';
     }
+};
 
+const user = {
+    login : 'Oleg@oleg.ru',
+    password : '123456'
 }
 
-company.employees.map((item) => {
-        console.log(item.name) ;
- })
+const userResetPass = removePassword.bind(user, true);
 
-
-company.getCeoName()
-company.getCorpName()
-
+console.log(userResetPass());
+console.log(user)
