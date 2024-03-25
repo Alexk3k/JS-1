@@ -10,6 +10,17 @@
     margin-top: 10px;
 }
 
+.notification{
+    font-size: 20px;
+    color: white;
+    margin: 20px;
+    display: block;
+}
+
+.notification_hidden {
+    display: none;
+}
+
 .button{
     display:  inline-flex;
     align-items: center;
