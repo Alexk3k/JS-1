@@ -10,12 +10,14 @@ function submitForm(){
     };
     document.querySelector('.panel').innerText = input;
     document.querySelector('.input').value = '';
-    // document.querySelector('.notification').classList.add('notification_active')
-    console.log(document.querySelector('.notification').getAttribute('Class'))
+    // console.log(document.querySelector('.notification').getAttribute('Class'))
     document.querySelector('.notification').setAttribute('Class', 'notification')
     document.querySelector('.notification').setAttribute('key', 1)
     document.querySelector('.notification').setAttribute('user-id', 1)
-
+    const textString = JSON.stringify({
+        text : input
+    });
+    localStorage.setItem('text', textString)
 }
 
 function inpitChanged(e){
@@ -24,10 +26,11 @@ function inpitChanged(e){
     }
 }
 
-// console.log(document.querySelector('.one').innerText);
-// console.log(document.querySelector('.one ~ div').innerText);
-console.log(document.querySelectorAll('.one')[0].innerText);
-console.log(document.querySelectorAll('.one')[1].innerText);
-// console.log(document.querySelector('#two').innerText);
-console.log(document.getElementById('two').innerText)
-console.log(document.querySelector('[user-id]').innerText)
+
+// const newTextKey = document.querySelector('.panel').innerText
+// console.log(newTextKey)
+// localStorage.setItem("key", document.querySelector('.panel').innerText);
+// console.log(localStorage)
+// const info = JSON.stringify(localStorage);
+// console.log(info)
+
